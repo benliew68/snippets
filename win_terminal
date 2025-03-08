@@ -1,0 +1,23 @@
+"actions": 
+[
+    {
+        "command": 
+        {
+            "action": "globalSummon",
+            "desktop": "toCurrent",
+            "dropdownDuration": 200,
+            "monitor": "toMouse",
+            "name": "_quake",
+            "toggleVisibility": true
+        },
+        "id": "User.MySummonQuake"
+    }
+],
+
+"keybindings": 
+[
+    {
+        "id": "User.MySummonQuake",
+        "keys": "alt+`"
+    }
+]
