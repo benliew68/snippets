@@ -21,3 +21,28 @@
         "keys": "alt+`"
     }
 ]
+
+
+bind -x '"`": [[ -z $READLINE_LINE ]] && READLINE_LINE+="Hello, world!" && READLINE_POINT=${#READLINE_LINE} || READLINE_LINE+="2" && READLINE_POINT=${#READLINE_LINE}'
+
+
+#!/bin/python3
+
+import sys, tty, termios
+import webbrowser
+
+fd = sys.stdin.fileno()
+old_settings = termios.tcgetattr(fd)
+tty.setraw(sys.stdin.fileno())
+ch = sys.stdin.read(1).strip()
+termios.tcsetattr(fd, termios.TCSADRAIN, old_settings)
+
+def search_google():
+    webbrowser.open("https://www.google.com")
+
+COMMANDS = {
+    "h": search_google
+}
+
+if ch in COMMANDS.keys():
+    COMMANDS[ch]()
